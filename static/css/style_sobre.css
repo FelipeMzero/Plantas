@@ -1,0 +1,102 @@
+/* Estilos gerais */
+body {
+    font-family: 'Google Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Estilos do header */
+header {
+    background-color: #4CAF50;
+    padding: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Google Sans', sans-serif;
+    color: #fff;
+    font-size: 40px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+/* Estilos da seção de introdução */
+.intro-section {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.intro-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-section h2 {
+    text-align: center;
+    font-family: 'Google Sans', sans-serif;
+    color: #000000;
+}
+
+.intro-section p {
+    font-family: 'Google Sans', sans-serif;
+    color: #000000;
+    line-height: 1.9;
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* Estilos do retângulo branco */
+.white-rectangle {
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+.white-rectangle p {
+    margin-bottom: 30px;
+}
+
+/* Estilos do rodapé */
+footer {
+    background-color: #4CAF50;
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
