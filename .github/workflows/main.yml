@@ -1,31 +1,24 @@
-name: Build and Deploy
-
+name: Deploy App
 on:
   push:
     branches:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-      - name: Start Flask application
-        run: |
-          python -m flask run --host=0.0.0.0 --port=${{ secrets.PORT }}
-
-      - name: Deploy to hosting platform
-        run: |
-          # Add deployment commands here
-          # For example: deploying to Heroku or GitHub Pages
+    - name: Start Flask App
+      run: python -m flask run --host=0.0.0.0 --port 5000
