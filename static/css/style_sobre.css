@@ -99,4 +99,53 @@ footer {
 footer p {
     margin: 0;
 }
+a {
+    color: #ffffff;
+}
+/* Estilo para o link de botão */
+.button-link {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
 
+
+/* Estilos para os botões */
+.button {
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    text-decoration: none; /* Remover sublinhado do texto */
+    border: none; /* Remover borda do botão */
+    cursor: pointer; /* Mostrar cursor ao passar por cima do botão */
+    border-radius: 4px; /* Arredondar bordas do botão */
+}
+
+.button:hover {
+    background-color: #45a049; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilos para a equipe */
+.intro-section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+/* Estilos para as funcionalidades */
+.intro-section ul li {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    color: #000000;
+    line-height: 1.9;
+    margin-bottom: 10px;
+}

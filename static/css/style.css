@@ -3,11 +3,6 @@ body {
     font-family: 'Google Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("data/images/groud.jpg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.9;
 }
 
 h1, h2 {
@@ -105,9 +100,28 @@ footer p {
     margin: 0;
 }
 
-#teste{
-    width: 400px;
+/* Estilos do teste */
+#teste {
+    width: 600px;
     height: 300px;
-    background-image: url(data/images/groud.jpg.png);
+    background-image: url('static/images/flyersite.png');
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+#teste {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+#teste img {
+    max-width: 100%;
+    max-height: 100%;
 }

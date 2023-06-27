@@ -100,3 +100,21 @@ footer p {
     margin: 0;
 }
 
+/* Estilos das plantas */
+.plant-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 200px; /* ou qualquer outra largura que desejar */
+    height: 200px; /* ou qualquer outra altura que desejar */
+    border-radius: 50%; /* para tornar a borda redonda */
+    overflow: hidden; /* para esconder as partes da imagem que estiverem fora do círculo */
+}
+
+.card img {
+    width: 100%; /* para preencher toda a área do card */
+    height: auto; /* para manter a proporção da imagem */
+}

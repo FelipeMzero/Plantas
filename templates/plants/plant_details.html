@@ -4,9 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/style_plant_details.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;600&display=swap">
-  <title>Detalhes da Planta</title>
+  <title>Plantas Medicinais</title>
+  <style>
+    .plant-card {
+      width: 20%;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .plant-card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .plant-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -15,10 +36,10 @@
     <nav>
       <ul>
         <li><a href="/">Página Principal</a></li>
+        <li><a href="/templates/vendedores.html">Vendedores</a></li>
+        <li><a href="/templates/plants/plant_details.html">Plantas</a></li>
         <li><a href="/templates/sobre.html">Sobre</a></li>
         <li><a href="/templates/contato.html">Contato</a></li>
-        <li><a href="/templates/plants/plant_details.html">Plantas</a></li>
-        <li><a href="/templates/vendedores.html">Vendedores</a></li>
     </ul>
     </nav>
   </header>
@@ -26,11 +47,58 @@
   <section class="plant-details">
     <div class="container">
       <h2>Detalhes da Planta</h2>
-      <div id="plant-cards"></div>
+      <div id="plant-cards" style="display: flex; flex-wrap: wrap; justify-content: space-between;"></div>
     </div>
   </section>
 
-  <script src="/static/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script>
+    // Código JavaScript para carregar os dados das plantas medicinais
+
+    // Função para carregar o arquivo CSV e exibir as plantas medicinais
+    function loadCSV() {
+      Papa.parse('/static/js/data/plantas_medicinais.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var plants = results.data;
+          showPlants(plants);
+        }
+      });
+    }
+
+    // Função para exibir as plantas medicinais
+    function showPlants(plants) {
+      var plantList = document.getElementById('plant-cards');
+
+      plants.forEach(function(plant) {
+        var plantCard = document.createElement('div');
+        plantCard.className = 'plant-card';
+
+        var plantImage = document.createElement('img');
+        var imageName = plant.name.trim().toLowerCase().replace(/\s+/g, '_') + '.jpg';
+        var imagePath = '/static/images/' + imageName;
+        plantImage.src = imagePath;
+        plantImage.alt = plant.name;
+        plantImage.classList.add('card'); // adiciona a classe "card" à imagem
+
+        var plantName = document.createElement('h3');
+        plantName.textContent = plant.name;
+
+        var plantDescription = document.createElement('p');
+        plantDescription.textContent = plant.description;
+
+        plantCard.appendChild(plantImage);
+        plantCard.appendChild(plantName);
+        plantCard.appendChild(plantDescription);
+
+        plantList.appendChild(plantCard);
+      });
+    }
+
+    // Carregar os dados do arquivo CSV e exibir as plantas medicinais
+    loadCSV();
+  </script>
 </body>
 
 </html>

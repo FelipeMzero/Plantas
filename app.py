@@ -1,5 +1,7 @@
-from flask import Flask, render_template, abort, send_from_directory, request
+from flask import Flask, render_template,send_from_directory, request
 import os
+import json
+import csv
 
 app = Flask(__name__)
 
@@ -52,7 +54,28 @@ def vendedores():
         return render_template('vendedores.html')
     else:
         # Redirecionar para a página "/templates/vendedores.html"
-        return render_template('vendedores.html')       
+        return render_template('vendedores.html')
+
+@app.route('/plants-data')
+def plants_data():
+    # Ler os dados do CSV e gerar os modelos de plantas
+    plants = []
+    csv_path = os.path.join(os.path.dirname(os.getcwd()), 'static', 'js', 'data', 'plantas_medicinais.csv')
+    with open(csv_path, 'r') as file:
+        csv_data = csv.reader(file)
+        next(csv_data)  # Ignorar o cabeçalho do CSV
+        for row in csv_data:
+            plant = {
+                'id': row[0],
+                'name': row[1],
+                'image': row[2],
+                'description': row[3],
+                'details_link': row[4]
+            }
+            plants.append(plant)
+
+    # Retornar os dados das plantas em formato JSON
+    return json.dumps({'plants': plants})
 
 if __name__ == '__main__':
     app.run(debug=True)
